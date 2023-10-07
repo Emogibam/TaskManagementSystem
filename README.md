@@ -33,3 +33,7 @@ User Interface:
 Frontend technologies (React) can be used to create user-friendly interfaces for interacting with the system.
 Conclusion:
 This Task Management System provides a flexible and feature-rich solution for managing tasks, enabling organizations and teams to collaborate efficiently, track progress, and maintain a structured workflow. It supports user authentication, role-based access control, data relationships, and customization while ensuring data security and integrity. Additionally, its scalable design can cater to the needs of organizations with varying sizes and complexities.
+
+
+#ERD
+https://drawsql.app/teams/new-7/diagrams/task-management-system
