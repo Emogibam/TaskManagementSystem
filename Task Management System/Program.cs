@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using TaskManagementSystem.Infrastruture.Context;
 using TaskManagementSystem.Infrastruture.Entities;
+using TaskManagementSystem.Infrastruture.Repository.Implementation;
+using TaskManagementSystem.Infrastruture.Repository.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
 
 
 var app = builder.Build();
