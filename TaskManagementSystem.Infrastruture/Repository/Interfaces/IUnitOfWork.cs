@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Infrastruture.Repository.Interfaces
 {
-    internal class IUnitOfWork
+    public interface IUnitOfWork
     {
+        IGenericRepo<T> GetRepository<T>() where T : class;
+        void SaveChanges();
     }
+
 }
