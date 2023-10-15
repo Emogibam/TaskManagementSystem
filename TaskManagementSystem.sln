@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementSystem.API", "Task Management System\TaskManagementSystem.API.csproj", "{EBF7240D-C67B-4244-BBA8-982AB7C6A42E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementSystem.Application", "TaskManagementSystem.Application\TaskManagementSystem.Application.csproj", "{B1DEF428-8AA7-4334-B43D-BDE054A71556}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementSystem.Application", "TaskManagementSystem.Application\TaskManagementSystem.Application.csproj", "{B1DEF428-8AA7-4334-B43D-BDE054A71556}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementSystem.BusinessLogic", "TaskManagementSystem.BusinessLogic\TaskManagementSystem.BusinessLogic.csproj", "{2A4F6A78-98E0-4AF4-90D3-21E8D196142E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementSystem.BusinessLogic", "TaskManagementSystem.BusinessLogic\TaskManagementSystem.BusinessLogic.csproj", "{2A4F6A78-98E0-4AF4-90D3-21E8D196142E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementSystem.Infrastruture", "TaskManagementSystem.Infrastruture\TaskManagementSystem.Infrastruture.csproj", "{CEE769D0-95B4-4D20-9383-45C1C50F76A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementSystem.Infrastruture", "TaskManagementSystem.Infrastruture\TaskManagementSystem.Infrastruture.csproj", "{CEE769D0-95B4-4D20-9383-45C1C50F76A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementSystem.ValidationAuthorization", "TaskManagementSystem.ValidationAuthorization\TaskManagementSystem.ValidationAuthorization.csproj", "{9C866DB5-F889-4FE9-A427-651826CA0EF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementSystem.ValidationAuthorization", "TaskManagementSystem.ValidationAuthorization\TaskManagementSystem.ValidationAuthorization.csproj", "{9C866DB5-F889-4FE9-A427-651826CA0EF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementSystem.ErrorHandling", "TaskManagementSystem.ErrorHandling\TaskManagementSystem.ErrorHandling.csproj", "{D9A341D9-B639-4178-A2FF-2D4F9D5F55D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementSystem.ErrorHandling", "TaskManagementSystem.ErrorHandling\TaskManagementSystem.ErrorHandling.csproj", "{D9A341D9-B639-4178-A2FF-2D4F9D5F55D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementSystem.Test", "TaskManagementSystem.Test\TaskManagementSystem.Test.csproj", "{045FF8B3-9B38-4395-A610-EB33CC6DDA98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementSystem.Test", "TaskManagementSystem.Test\TaskManagementSystem.Test.csproj", "{045FF8B3-9B38-4395-A610-EB33CC6DDA98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementSystem.API", "TaskManagementSystem.API\TaskManagementSystem.API.csproj", "{8E6A0CB6-AF72-4597-A1EA-BF7E99814911}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EBF7240D-C67B-4244-BBA8-982AB7C6A42E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBF7240D-C67B-4244-BBA8-982AB7C6A42E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBF7240D-C67B-4244-BBA8-982AB7C6A42E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBF7240D-C67B-4244-BBA8-982AB7C6A42E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1DEF428-8AA7-4334-B43D-BDE054A71556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1DEF428-8AA7-4334-B43D-BDE054A71556}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1DEF428-8AA7-4334-B43D-BDE054A71556}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{045FF8B3-9B38-4395-A610-EB33CC6DDA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{045FF8B3-9B38-4395-A610-EB33CC6DDA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{045FF8B3-9B38-4395-A610-EB33CC6DDA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E6A0CB6-AF72-4597-A1EA-BF7E99814911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E6A0CB6-AF72-4597-A1EA-BF7E99814911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E6A0CB6-AF72-4597-A1EA-BF7E99814911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E6A0CB6-AF72-4597-A1EA-BF7E99814911}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
