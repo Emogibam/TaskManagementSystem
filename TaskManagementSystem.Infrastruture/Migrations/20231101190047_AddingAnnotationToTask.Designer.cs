@@ -12,14 +12,14 @@ using TaskManagementSystem.Infrastruture.Context;
 namespace TaskManagementSystem.Infrastruture.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231007133716_AllEntities")]
-    partial class AllEntities
+    [Migration("20231101190047_AddingAnnotationToTask")]
+    partial class AddingAnnotationToTask
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.22")
+                .HasAnnotation("ProductVersion", "6.0.24")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -278,7 +278,7 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndPeriod")
+                    b.Property<DateTime?>("EndPeriod")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("StartPeriod")
@@ -362,7 +362,7 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                     b.Property<Guid>("AccountId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("ClosedDate")
+                    b.Property<DateTime?>("ClosedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("CreatorUserId")
@@ -372,7 +372,7 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsAcheived")
@@ -430,9 +430,6 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                     b.Property<Guid>("AccountId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ApplicationUserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -448,7 +445,7 @@ namespace TaskManagementSystem.Infrastruture.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Emails");
                 });
@@ -557,7 +554,7 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                 {
                     b.HasOne("TaskManagementSystem.Infrastruture.Entities.ApplicationUser", "ApplicationUser")
                         .WithMany("UserEmails")
-                        .HasForeignKey("ApplicationUserId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

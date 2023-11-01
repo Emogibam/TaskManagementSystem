@@ -4,7 +4,7 @@
 
 namespace TaskManagementSystem.Infrastruture.Migrations
 {
-    public partial class AllEntitiesAdded : Migration
+    public partial class AddingAnnotationTaskAssignee : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

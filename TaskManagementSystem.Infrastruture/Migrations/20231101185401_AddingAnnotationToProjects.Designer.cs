@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskManagementSystem.Infrastruture.Context;
 
@@ -11,9 +12,10 @@ using TaskManagementSystem.Infrastruture.Context;
 namespace TaskManagementSystem.Infrastruture.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231101185401_AddingAnnotationToProjects")]
+    partial class AddingAnnotationToProjects
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -360,7 +362,7 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                     b.Property<Guid>("AccountId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("ClosedDate")
+                    b.Property<DateTime>("ClosedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("CreatorUserId")
@@ -370,7 +372,7 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsAcheived")

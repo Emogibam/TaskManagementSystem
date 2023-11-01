@@ -4,7 +4,7 @@
 
 namespace TaskManagementSystem.Infrastruture.Migrations
 {
-    public partial class AddingNewRelations : Migration
+    public partial class AddingAnnotationToTeam : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

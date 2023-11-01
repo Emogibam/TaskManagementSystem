@@ -12,14 +12,14 @@ using TaskManagementSystem.Infrastruture.Context;
 namespace TaskManagementSystem.Infrastruture.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231007090524_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20231101184733_AddingAnnotationToEmail")]
+    partial class AddingAnnotationToEmail
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.22")
+                .HasAnnotation("ProductVersion", "6.0.24")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -232,6 +232,195 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.PhoneNumber", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ApplicationUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Ext")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPrimary")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Number")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("PhoneNumbers");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.Project", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndPeriod")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartPeriod")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.ProjectMembers", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("MemberType")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ProjectId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("ProjectMembers");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.TaskAssignee", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ApplicationUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AssigneeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TaskId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TeamId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("TaskId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("TaskAssignees");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.Tasks", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ClosedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatorUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsAcheived")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.Team", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teams");
+                });
+
             modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.UserEmail", b =>
                 {
                     b.Property<Guid>("Id")
@@ -255,6 +444,8 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Emails");
                 });
@@ -308,6 +499,90 @@ namespace TaskManagementSystem.Infrastruture.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.PhoneNumber", b =>
+                {
+                    b.HasOne("TaskManagementSystem.Infrastruture.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany("PhoneNumbers")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.ProjectMembers", b =>
+                {
+                    b.HasOne("TaskManagementSystem.Infrastruture.Entities.Project", "Project")
+                        .WithMany("ProjectMembers")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.TaskAssignee", b =>
+                {
+                    b.HasOne("TaskManagementSystem.Infrastruture.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany("TaskAssignees")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskManagementSystem.Infrastruture.Entities.Tasks", "Task")
+                        .WithMany("TaskAssignees")
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskManagementSystem.Infrastruture.Entities.Team", "Team")
+                        .WithMany("TaskAssignees")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Task");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.UserEmail", b =>
+                {
+                    b.HasOne("TaskManagementSystem.Infrastruture.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany("UserEmails")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.ApplicationUser", b =>
+                {
+                    b.Navigation("PhoneNumbers");
+
+                    b.Navigation("TaskAssignees");
+
+                    b.Navigation("UserEmails");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.Project", b =>
+                {
+                    b.Navigation("ProjectMembers");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.Tasks", b =>
+                {
+                    b.Navigation("TaskAssignees");
+                });
+
+            modelBuilder.Entity("TaskManagementSystem.Infrastruture.Entities.Team", b =>
+                {
+                    b.Navigation("TaskAssignees");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,7 +4,7 @@
 
 namespace TaskManagementSystem.Infrastruture.Migrations
 {
-    public partial class AddingTaskAssignee : Migration
+    public partial class AddingAnnotationToApplicationUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
