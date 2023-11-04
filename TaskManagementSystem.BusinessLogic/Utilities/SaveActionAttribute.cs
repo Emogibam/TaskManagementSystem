@@ -13,7 +13,7 @@ namespace TaskManagementSystem.BusinessLogic.Utilities
     {
         public abstract bool CanPerform(Type type);
 
-        public abstract bool Perform([CanBeNull] object value, EntityState state,
+        public abstract object Perform([CanBeNull] object value, EntityState state,
             [CanBeNull] object originalValue, object parentEntity, string propertyName);
     }
 }

@@ -15,9 +15,12 @@ namespace TaskManagementSystem.BusinessLogic.Utilities
             return type == typeof(Guid);
         }
 
-        public override bool Perform([CanBeNull] object value, EntityState state, [CanBeNull] object originalValue, object parentEntity, string propertyName)
+        public override object Perform([CanBeNull] object obj, EntityState state, [CanBeNull] object originalValue, object parentEntity, string propertyName)
         {
+            var shouldAct = (state == EntityState.Added || state == EntityState.Modified)
+                && obj != null && (Guid) obj == default(Guid);
 
+            return shouldAct ? SequentialGuid.Create() : obj;
         }
     }
 }

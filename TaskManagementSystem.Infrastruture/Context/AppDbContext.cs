@@ -5,7 +5,7 @@ using TaskManagementSystem.Infrastruture.Entities;
 
 namespace TaskManagementSystem.Infrastruture.Context
 {
-    public class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
+    public abstract class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
